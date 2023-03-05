@@ -22,10 +22,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         TaskRepository taskRepository = new TaskRepositoryImpl(connection);
-        long created = System.currentTimeMillis();
-        taskRepository.save(new Task(UUID.randomUUID(), "Test", "Nps", created, created, StatusType.PENDING));
+        long time = System.currentTimeMillis();
+        taskRepository.save(new Task(UUID.randomUUID(), "Test", "Nps", time, time, StatusType.PENDING));
         taskRepository.findAll().forEach(System.out::println);
-//        taskRepository.updateById(null);
     }
 
     @Override
